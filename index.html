@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #336699, #ffd700);
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: url('your_background_image_url.jpg') center/cover no-repeat;
+            width: 100%;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 36px;
+        }
+
+        .button-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            background-color: #336699;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1f4f83;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to Button Page</h1>
+
+    <div class="button-menu">
+        <button onclick="redirectToGoogleForm('BoltTV')">BoltTV</button>
+        <button onclick="redirectToGoogleForm('AHS Webstore')">AHS Webstore</button>
+        <button onclick="redirectToPage('​Request Forms.html')">Request Forms</button>
+        <button onclick="redirectToPage('​SpirtPoints.html')">Spirit Points</button>
+        <button onclick="redirectToPage('MeetStudentCoucil.html')">Meet Student Council</button>
+        <button onclick="redirectToPage('WhatisStudentCoucil.html')">What is Student Council</button>
+        <button onclick="redirectToPage('Calander.html')">Student Council Calendar</button>
+        <button onclick="redirectToPage('APPS&PRS.html')">APPS&PRS</button>
+     <button onclick="redirectToPage('2023-2024 ASB Commissioner Application.html')">2023-2024 ASB Commissioner Application</button>
+        <button onclick="redirectToGoogleForm('PA ANNOUCEMENT')">PA ANNOUNCEMENT</button>
+    </div>
+
+    <script>
+        function redirectToGoogleForm(formId) {
+            // Redirect to Google Form based on formId
+            switch (formId) {
+                case 'AHS Webstore':
+                    window.location.href = 'https://www.myschoolbucks.com/ver2/home/parentportal.action?clientKey=ZZ5VTMAOPO5U67J';
+                    break;
+                case 'PA ANNOUCEMENT':
+                    window.location.href = 'https://docs.google.com/forms/d/e/your_form_id_2/viewform';
+                    break;
+                case 'BoltTV':
+                    window.location.href = 'https://www.youtube.com/@agourahighbolttv';
+                    break;
+                default:
+                    // Handle default case
+                    break;
+            }
+        }
+
+        function redirectToPage(pageUrl) {
+            // Redirect to the specified page
+            window.location.href = pageUrl;
+        }
+    </script>
+</body>
+
+</html>

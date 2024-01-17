@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School Competition Scoreboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        table {
+            width: 50%;
+            margin: 50px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>High School Competition Scoreboard</h1>
+
+    <table id="scoreboard">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Class A</td>
+                <td id="scoreA">0</td>
+            </tr>
+            <tr>
+                <td>Class B</td>
+                <td id="scoreB">0</td>
+            </tr>
+            <tr>
+                <td>Class C</td>
+                <td id="scoreC">0</td>
+            </tr>
+            <tr>
+                <td>Class D</td>
+                <td id="scoreD">0</td>
+            </tr>
+            <!-- Add more classes as needed -->
+        </tbody>
+    </table>
+
+    <script>
+        function updateScore(classId, points) {
+            const scoreElement = document.getElementById(classId);
+            const currentScore = parseInt(scoreElement.textContent);
+            const newScore = currentScore + points;
+            scoreElement.textContent = newScore;
+
+            // Change color dynamically based on the score
+           /* if (newScore >= 20) {
+                scoreElement.style.backgroundColor = '#ff6347'; // Tomato color
+            } else if (newScore >= 10) {
+                scoreElement.style.backgroundColor = '#ffd700'; // Gold color
+            } else {
+                scoreElement.style.backgroundColor = ''; // Default background color
+            }
+            */
+
+            // Sort the rows based on score
+            const tableBody = document.querySelector('#scoreboard tbody');
+            const rows = Array.from(tableBody.querySelectorAll('tr'));
+            rows.sort((a, b) => {
+                const scoreA = parseInt(a.querySelector('td:last-child').textContent);
+                const scoreB = parseInt(b.querySelector('td:last-child').textContent);
+                return scoreB - scoreA;
+            });
+
+            // Reorder the rows in the table
+            tableBody.innerHTML = '';
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+
+        // Example: Update Class A score by 5 points
+        // This is where u update the points...
+        updateScore('scoreA', 5);
+        updateScore('scoreB', 8);
+        updateScore('scoreC', 12);
+        updateScore('scoreD', 12);
+
+    </script>
+
+</body>
+</html>
